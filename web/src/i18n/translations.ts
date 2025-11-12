@@ -146,6 +146,10 @@ export const translations = {
     currentTraders: 'Current Traders',
     noTraders: 'No AI Traders',
     createFirstTrader: 'Create your first AI trader to get started',
+    dashboardEmptyTitle: "Let's Get Started!",
+    dashboardEmptyDescription:
+      'Create your first AI trader to automate your trading strategy. Connect an exchange, choose an AI model, and start trading in minutes!',
+    goToTradersPage: 'Create Your First Trader',
     configureModelsFirst: 'Please configure AI models first',
     configureExchangesFirst: 'Please configure exchanges first',
     configureModelsAndExchangesFirst:
@@ -198,6 +202,18 @@ export const translations = {
       'Hyperliquid uses private key for trading authentication',
     hyperliquidWalletAddressDesc:
       'Wallet address corresponding to the private key',
+    // Hyperliquid Agent Wallet (New Security Model)
+    hyperliquidAgentWalletTitle: 'Hyperliquid Agent Wallet Configuration',
+    hyperliquidAgentWalletDesc:
+      'Use Agent Wallet for secure trading: Agent wallet signs transactions (balance ~0), Main wallet holds funds (never expose private key)',
+    hyperliquidAgentPrivateKey: 'Agent Private Key',
+    enterHyperliquidAgentPrivateKey: 'Enter Agent wallet private key',
+    hyperliquidAgentPrivateKeyDesc:
+      'Agent wallet private key for signing transactions (keep balance near 0 for security)',
+    hyperliquidMainWalletAddress: 'Main Wallet Address',
+    enterHyperliquidMainWalletAddress: 'Enter Main wallet address',
+    hyperliquidMainWalletAddressDesc:
+      'Main wallet address that holds your trading funds (never expose its private key)',
     asterUserDesc:
       'Main wallet address - The EVM wallet address you use to log in to Aster (Note: Only EVM wallets are supported, Solana wallets are not supported)',
     asterSignerDesc:
@@ -206,6 +222,44 @@ export const translations = {
       'API wallet private key - Get from https://www.asterdex.com/en/api-wallet (only used locally for signing, never transmitted)',
     asterUsdtWarning:
       'Important: Aster only tracks USDT balance. Please ensure you use USDT as margin currency to avoid P&L calculation errors caused by price fluctuations of other assets (BNB, ETH, etc.)',
+
+    // Exchange names
+    hyperliquidExchangeName: 'Hyperliquid',
+    asterExchangeName: 'Aster DEX',
+
+    // Secure input
+    secureInputButton: 'Secure Input',
+    secureInputReenter: 'Re-enter Securely',
+    secureInputClear: 'Clear',
+    secureInputHint:
+      'Captured via secure two-step input. Use "Re-enter Securely" to update this value.',
+
+    // Two Stage Key Modal
+    twoStageModalTitle: 'Secure Key Input',
+    twoStageModalDescription:
+      'Use a two-step flow to enter your {length}-character private key safely.',
+    twoStageStage1Title: 'Step 1 · Enter the first half',
+    twoStageStage1Placeholder: 'First 32 characters (include 0x if present)',
+    twoStageStage1Hint:
+      'Continuing copies an obfuscation string to your clipboard as a diversion.',
+    twoStageStage1Error: 'Please enter the first part before continuing.',
+    twoStageNext: 'Next',
+    twoStageProcessing: 'Processing…',
+    twoStageCancel: 'Cancel',
+    twoStageStage2Title: 'Step 2 · Enter the rest',
+    twoStageStage2Placeholder: 'Remaining characters of your private key',
+    twoStageStage2Hint:
+      'Paste the obfuscation string somewhere neutral, then finish entering your key.',
+    twoStageClipboardSuccess:
+      'Obfuscation string copied. Paste it into any text field once before completing.',
+    twoStageClipboardReminder:
+      'Remember to paste the obfuscation string before submitting to avoid clipboard leaks.',
+    twoStageClipboardManual:
+      'Automatic copy failed. Copy the obfuscation string below manually.',
+    twoStageBack: 'Back',
+    twoStageSubmit: 'Confirm',
+    twoStageInvalidFormat:
+      'Invalid private key format. Expected {length} hexadecimal characters (optional 0x prefix).',
     testnetDescription:
       'Enable to connect to exchange test environment for simulated trading',
     securityWarning: 'Security Warning',
@@ -237,6 +291,33 @@ export const translations = {
     btcEthLeverageValidation: 'BTC/ETH leverage must be between 1-50x',
     altcoinLeverageValidation: 'Altcoin leverage must be between 1-20x',
     invalidSymbolFormat: 'Invalid symbol format: {symbol}, must end with USDT',
+
+    // System Prompt Templates
+    systemPromptTemplate: 'System Prompt Template',
+    promptTemplateDefault: 'Default Stable',
+    promptTemplateAdaptive: 'Conservative Strategy',
+    promptTemplateAdaptiveRelaxed: 'Aggressive Strategy',
+    promptTemplateHansen: 'Hansen Strategy',
+    promptTemplateNof1: 'NoF1 English Framework',
+    promptTemplateTaroLong: 'Taro Long Position',
+    promptDescDefault: '📊 Default Stable Strategy',
+    promptDescDefaultContent:
+      'Maximize Sharpe ratio, balanced risk-reward, suitable for beginners and stable long-term trading',
+    promptDescAdaptive: '🛡️ Conservative Strategy (v6.0.0)',
+    promptDescAdaptiveContent:
+      'Strict risk control, BTC mandatory confirmation, high win rate priority, suitable for conservative traders',
+    promptDescAdaptiveRelaxed: '⚡ Aggressive Strategy (v6.0.0)',
+    promptDescAdaptiveRelaxedContent:
+      'High-frequency trading, BTC optional confirmation, pursue trading opportunities, suitable for volatile markets',
+    promptDescHansen: '🎯 Hansen Strategy',
+    promptDescHansenContent:
+      'Hansen custom strategy, maximize Sharpe ratio, for professional traders',
+    promptDescNof1: '🌐 NoF1 English Framework',
+    promptDescNof1Content:
+      'Hyperliquid exchange specialist, English prompts, maximize risk-adjusted returns',
+    promptDescTaroLong: '📈 Taro Long Position Strategy',
+    promptDescTaroLongContent:
+      'Data-driven decisions, multi-dimensional validation, continuous learning evolution, long position specialist',
 
     // Loading & Error
     loading: 'Loading...',
@@ -304,6 +385,7 @@ export const translations = {
     serverIPAddresses: 'Server IP Addresses',
     copyIP: 'Copy',
     ipCopied: 'IP Copied',
+    copyIPFailed: 'Failed to copy IP address. Please copy manually',
     loadingServerIP: 'Loading server IP...',
 
     // Error Messages
@@ -321,16 +403,28 @@ export const translations = {
     exchangeNotExist: 'Exchange does not exist',
     deleteExchangeConfigFailed: 'Failed to delete exchange configuration',
     saveSignalSourceFailed: 'Failed to save signal source configuration',
+    encryptionFailed: 'Failed to encrypt sensitive data',
 
     // Login & Register
     login: 'Sign In',
     register: 'Sign Up',
+    username: 'Username',
     email: 'Email',
     password: 'Password',
     confirmPassword: 'Confirm Password',
+    usernamePlaceholder: 'your username',
     emailPlaceholder: 'your@email.com',
     passwordPlaceholder: 'Enter your password',
     confirmPasswordPlaceholder: 'Re-enter your password',
+    passwordRequirements: 'Password requirements',
+    passwordRuleMinLength: 'Minimum 8 characters',
+    passwordRuleUppercase: 'At least 1 uppercase letter',
+    passwordRuleLowercase: 'At least 1 lowercase letter',
+    passwordRuleNumber: 'At least 1 number',
+    passwordRuleSpecial: 'At least 1 special character (@#$%!&*?)',
+    passwordRuleMatch: 'Passwords match',
+    passwordNotMeetRequirements:
+      'Password does not meet the security requirements',
     otpPlaceholder: '000000',
     loginTitle: 'Sign in to your account',
     registerTitle: 'Create a new account',
@@ -376,10 +470,17 @@ export const translations = {
     completeRegistrationSubtitle: 'to complete registration',
     loginSuccess: 'Login successful',
     registrationSuccess: 'Registration successful',
-    loginFailed: 'Login failed',
-    registrationFailed: 'Registration failed',
-    verificationFailed: 'OTP verification failed',
+    loginFailed: 'Login failed. Please check your email and password.',
+    registrationFailed: 'Registration failed. Please try again.',
+    verificationFailed:
+      'OTP verification failed. Please check the code and try again.',
     invalidCredentials: 'Invalid email or password',
+    weak: 'Weak',
+    medium: 'Medium',
+    strong: 'Strong',
+    passwordStrength: 'Password strength',
+    passwordStrengthHint:
+      'Use at least 8 characters with mix of letters, numbers and symbols',
     passwordMismatch: 'Passwords do not match',
     emailRequired: 'Email is required',
     passwordRequired: 'Password is required',
@@ -684,6 +785,65 @@ export const translations = {
     faqGetHelp: 'Where can I get help?',
     faqGetHelpAnswer:
       'Check GitHub Discussions, join our Telegram Community, or open an issue on GitHub.',
+
+    // Web Crypto Environment Check
+    environmentCheck: {
+      button: 'Check Secure Environment',
+      checking: 'Checking...',
+      description:
+        'Automatically verifying whether this browser context allows Web Crypto before entering sensitive keys.',
+      secureTitle: 'Secure context detected',
+      secureDesc:
+        'Web Crypto API is available. You can continue entering secrets with encryption enabled.',
+      insecureTitle: 'Insecure context detected',
+      insecureDesc:
+        'This page is not running over HTTPS or a trusted localhost origin, so browsers block Web Crypto calls.',
+      tipsTitle: 'How to fix:',
+      tipHTTPS:
+        'Serve the dashboard over HTTPS with a valid certificate (IP origins also need TLS).',
+      tipLocalhost:
+        'During development, open the app via http://localhost or 127.0.0.1.',
+      tipIframe:
+        'Avoid embedding the app in insecure HTTP iframes or reverse proxies that strip HTTPS.',
+      unsupportedTitle: 'Browser does not expose Web Crypto',
+      unsupportedDesc:
+        'Open NOFX over HTTPS (or http://localhost during development) and avoid insecure iframes/reverse proxies so the browser can enable Web Crypto.',
+      summary: 'Current origin: {origin} • Protocol: {protocol}',
+    },
+
+    environmentSteps: {
+      checkTitle: '1. Environment check',
+      selectTitle: '2. Select exchange',
+    },
+
+    // Two-Stage Key Modal
+    twoStageKey: {
+      title: 'Two-Stage Private Key Input',
+      stage1Description:
+        'Enter the first {length} characters of your private key',
+      stage2Description:
+        'Enter the remaining {length} characters of your private key',
+      stage1InputLabel: 'First Part',
+      stage2InputLabel: 'Second Part',
+      characters: 'characters',
+      processing: 'Processing...',
+      nextButton: 'Next',
+      cancelButton: 'Cancel',
+      backButton: 'Back',
+      encryptButton: 'Encrypt & Submit',
+      obfuscationCopied: 'Obfuscation data copied to clipboard',
+      obfuscationInstruction:
+        'Paste something else to clear clipboard, then continue',
+      obfuscationManual: 'Manual obfuscation required',
+    },
+
+    // Error Messages
+    errors: {
+      privatekeyIncomplete: 'Please enter at least {expected} characters',
+      privatekeyInvalidFormat:
+        'Invalid private key format (should be 64 hex characters)',
+      privatekeyObfuscationFailed: 'Clipboard obfuscation failed',
+    },
   },
   zh: {
     // Header
@@ -830,6 +990,10 @@ export const translations = {
     currentTraders: '当前交易员',
     noTraders: '暂无AI交易员',
     createFirstTrader: '创建您的第一个AI交易员开始使用',
+    dashboardEmptyTitle: '开始使用吧！',
+    dashboardEmptyDescription:
+      '创建您的第一个 AI 交易员，自动化您的交易策略。连接交易所、选择 AI 模型，几分钟内即可开始交易！',
+    goToTradersPage: '创建您的第一个交易员',
     configureModelsFirst: '请先配置AI模型',
     configureExchangesFirst: '请先配置交易所',
     configureModelsAndExchangesFirst: '请先配置AI模型和交易所',
@@ -879,6 +1043,18 @@ export const translations = {
     enterPassphrase: '输入Passphrase (OKX必填)',
     hyperliquidPrivateKeyDesc: 'Hyperliquid 使用私钥进行交易认证',
     hyperliquidWalletAddressDesc: '与私钥对应的钱包地址',
+    // Hyperliquid 代理钱包 (新安全模型)
+    hyperliquidAgentWalletTitle: 'Hyperliquid 代理钱包配置',
+    hyperliquidAgentWalletDesc:
+      '使用代理钱包安全交易：代理钱包用于签名（餘額~0），主钱包持有资金（永不暴露私钥）',
+    hyperliquidAgentPrivateKey: '代理私钥',
+    enterHyperliquidAgentPrivateKey: '输入代理钱包私钥',
+    hyperliquidAgentPrivateKeyDesc:
+      '代理钱包私钥，用于签名交易（为了安全应保持余额接近0）',
+    hyperliquidMainWalletAddress: '主钱包地址',
+    enterHyperliquidMainWalletAddress: '输入主钱包地址',
+    hyperliquidMainWalletAddressDesc:
+      '持有交易资金的主钱包地址（永不暴露其私钥）',
     asterUserDesc:
       '主钱包地址 - 您用于登录 Aster 的 EVM 钱包地址（注意：仅支持 EVM 钱包，不支持 Solana 钱包）',
     asterSignerDesc:
@@ -887,6 +1063,41 @@ export const translations = {
       'API 钱包私钥 - 从 https://www.asterdex.com/zh-CN/api-wallet 获取（仅在本地用于签名，不会被传输）',
     asterUsdtWarning:
       '重要提示：Aster 仅统计 USDT 余额。请确保您使用 USDT 作为保证金币种，避免其他资产（BNB、ETH等）的价格波动导致盈亏统计错误',
+
+    // Exchange names
+    hyperliquidExchangeName: 'Hyperliquid',
+    asterExchangeName: 'Aster DEX',
+
+    // Secure input
+    secureInputButton: '安全输入',
+    secureInputReenter: '重新安全输入',
+    secureInputClear: '清除',
+    secureInputHint:
+      '已通过安全双阶段输入设置。若需修改，请点击"重新安全输入"。',
+
+    // Two Stage Key Modal
+    twoStageModalTitle: '安全私钥输入',
+    twoStageModalDescription: '使用双阶段流程安全输入长度为 {length} 的私钥。',
+    twoStageStage1Title: '步骤一 · 输入前半段',
+    twoStageStage1Placeholder: '前 32 位字符（若有 0x 前缀请保留）',
+    twoStageStage1Hint:
+      '继续后会将扰动字符串复制到剪贴板，用于迷惑剪贴板监控。',
+    twoStageStage1Error: '请先输入第一段私钥。',
+    twoStageNext: '下一步',
+    twoStageProcessing: '处理中…',
+    twoStageCancel: '取消',
+    twoStageStage2Title: '步骤二 · 输入剩余部分',
+    twoStageStage2Placeholder: '剩余的私钥字符',
+    twoStageStage2Hint: '将扰动字符串粘贴到任意位置后，再完成私钥输入。',
+    twoStageClipboardSuccess:
+      '扰动字符串已复制。请在完成前在任意文本处粘贴一次以迷惑剪贴板记录。',
+    twoStageClipboardReminder:
+      '记得在提交前粘贴一次扰动字符串，降低剪贴板泄漏风险。',
+    twoStageClipboardManual: '自动复制失败，请手动复制下面的扰动字符串。',
+    twoStageBack: '返回',
+    twoStageSubmit: '确认',
+    twoStageInvalidFormat:
+      '私钥格式不正确，应为 {length} 位十六进制字符（可选 0x 前缀）。',
     testnetDescription: '启用后将连接到交易所测试环境,用于模拟交易',
     securityWarning: '安全提示',
     saveConfiguration: '保存配置',
@@ -914,6 +1125,32 @@ export const translations = {
     btcEthLeverageValidation: 'BTC/ETH杠杆必须在1-50倍之间',
     altcoinLeverageValidation: '山寨币杠杆必须在1-20倍之间',
     invalidSymbolFormat: '无效的币种格式：{symbol}，必须以USDT结尾',
+
+    // System Prompt Templates
+    systemPromptTemplate: '系统提示词模板',
+    promptTemplateDefault: '默认稳健',
+    promptTemplateAdaptive: '保守策略',
+    promptTemplateAdaptiveRelaxed: '激进策略',
+    promptTemplateHansen: 'Hansen 策略',
+    promptTemplateNof1: 'NoF1 英文框架',
+    promptTemplateTaroLong: 'Taro 长仓',
+    promptDescDefault: '📊 默认稳健策略',
+    promptDescDefaultContent:
+      '最大化夏普比率，平衡风险收益，适合新手和长期稳定交易',
+    promptDescAdaptive: '🛡️ 保守策略 (v6.0.0)',
+    promptDescAdaptiveContent:
+      '严格风控，BTC 强制确认，高胜率优先，适合保守型交易者',
+    promptDescAdaptiveRelaxed: '⚡ 激进策略 (v6.0.0)',
+    promptDescAdaptiveRelaxedContent:
+      '高频交易，BTC 可选确认，追求交易机会，适合波动市场',
+    promptDescHansen: '🎯 Hansen 策略',
+    promptDescHansenContent: 'Hansen 定制策略，最大化夏普比率，专业交易者专用',
+    promptDescNof1: '🌐 NoF1 英文框架',
+    promptDescNof1Content:
+      'Hyperliquid 交易所专用，英文提示词，风险调整回报最大化',
+    promptDescTaroLong: '📈 Taro 长仓策略',
+    promptDescTaroLongContent:
+      '数据驱动决策，多维度验证，持续学习进化，长仓专用',
 
     // Loading & Error
     loading: '加载中...',
@@ -965,6 +1202,7 @@ export const translations = {
     serverIPAddresses: '服务器IP地址',
     copyIP: '复制',
     ipCopied: 'IP已复制',
+    copyIPFailed: 'IP地址复制失败，请手动复制',
     loadingServerIP: '正在加载服务器IP...',
 
     // Error Messages
@@ -981,16 +1219,27 @@ export const translations = {
     exchangeNotExist: '交易所不存在',
     deleteExchangeConfigFailed: '删除交易所配置失败',
     saveSignalSourceFailed: '保存信号源配置失败',
+    encryptionFailed: '加密敏感数据失败',
 
     // Login & Register
     login: '登录',
     register: '注册',
+    username: '用户名',
     email: '邮箱',
     password: '密码',
     confirmPassword: '确认密码',
+    usernamePlaceholder: '请输入用户名',
     emailPlaceholder: '请输入邮箱地址',
     passwordPlaceholder: '请输入密码（至少6位）',
     confirmPasswordPlaceholder: '请再次输入密码',
+    passwordRequirements: '密码要求',
+    passwordRuleMinLength: '至少 8 位',
+    passwordRuleUppercase: '至少 1 个大写字母',
+    passwordRuleLowercase: '至少 1 个小写字母',
+    passwordRuleNumber: '至少 1 个数字',
+    passwordRuleSpecial: '至少 1 个特殊字符（@#$%!&*?）',
+    passwordRuleMatch: '两次密码一致',
+    passwordNotMeetRequirements: '密码不符合安全要求',
     otpPlaceholder: '000000',
     loginTitle: '登录到您的账户',
     registerTitle: '创建新账户',
@@ -1032,10 +1281,15 @@ export const translations = {
     completeRegistrationSubtitle: '以完成注册',
     loginSuccess: '登录成功',
     registrationSuccess: '注册成功',
-    loginFailed: '登录失败',
-    registrationFailed: '注册失败',
-    verificationFailed: 'OTP验证失败',
+    loginFailed: '登录失败，请检查您的邮箱和密码。',
+    registrationFailed: '注册失败，请重试。',
+    verificationFailed: 'OTP 验证失败，请检查验证码后重试。',
     invalidCredentials: '邮箱或密码错误',
+    weak: '弱',
+    medium: '中',
+    strong: '强',
+    passwordStrength: '密码强度',
+    passwordStrengthHint: '建议至少8位，包含大小写、数字和符号',
     passwordMismatch: '两次输入的密码不一致',
     emailRequired: '请输入邮箱',
     passwordRequired: '请输入密码',
@@ -1325,6 +1579,58 @@ export const translations = {
     faqGetHelp: '在哪里可以获得帮助？',
     faqGetHelpAnswer:
       '查看 GitHub Discussions、加入 Telegram 社区或在 GitHub 上提出 issue。',
+
+    // Web Crypto Environment Check
+    environmentCheck: {
+      button: '一键检测环境',
+      checking: '正在检测...',
+      description: '系统将自动检测当前浏览器是否允许使用 Web Crypto。',
+      secureTitle: '环境安全，已启用 Web Crypto',
+      secureDesc: '页面处于安全上下文，可继续输入敏感信息并使用加密传输。',
+      insecureTitle: '检测到非安全环境',
+      insecureDesc:
+        '当前访问未通过 HTTPS 或可信 localhost，浏览器会阻止 Web Crypto 调用。',
+      tipsTitle: '修改建议：',
+      tipHTTPS:
+        '通过 HTTPS 访问（即使是 IP 也需证书），或部署到支持 TLS 的域名。',
+      tipLocalhost: '开发阶段请使用 http://localhost 或 127.0.0.1。',
+      tipIframe:
+        '避免把应用嵌入在不安全的 HTTP iframe 或会降级协议的反向代理中。',
+      unsupportedTitle: '浏览器未提供 Web Crypto',
+      unsupportedDesc:
+        '请通过 HTTPS 或本机 localhost 访问 NOFX，并避免嵌入不安全 iframe/反向代理，以符合浏览器的 Web Crypto 规则。',
+      summary: '当前来源：{origin} · 协议：{protocol}',
+    },
+
+    environmentSteps: {
+      checkTitle: '1. 环境检测',
+      selectTitle: '2. 选择交易所',
+    },
+
+    // Two-Stage Key Modal
+    twoStageKey: {
+      title: '两阶段私钥输入',
+      stage1Description: '请输入私钥的前 {length} 位字符',
+      stage2Description: '请输入私钥的后 {length} 位字符',
+      stage1InputLabel: '第一部分',
+      stage2InputLabel: '第二部分',
+      characters: '位字符',
+      processing: '处理中...',
+      nextButton: '下一步',
+      cancelButton: '取消',
+      backButton: '返回',
+      encryptButton: '加密并提交',
+      obfuscationCopied: '混淆数据已复制到剪贴板',
+      obfuscationInstruction: '请粘贴其他内容清空剪贴板，然后继续',
+      obfuscationManual: '需要手动混淆',
+    },
+
+    // Error Messages
+    errors: {
+      privatekeyIncomplete: '请输入至少 {expected} 位字符',
+      privatekeyInvalidFormat: '私钥格式无效（应为64位十六进制字符）',
+      privatekeyObfuscationFailed: '剪贴板混淆失败',
+    },
   },
 }
 
@@ -1333,7 +1639,15 @@ export function t(
   lang: Language,
   params?: Record<string, string | number>
 ): string {
-  let text = translations[lang][key as keyof (typeof translations)['en']] || key
+  // Handle nested keys like 'twoStageKey.title'
+  const keys = key.split('.')
+  let value: any = translations[lang]
+
+  for (const k of keys) {
+    value = value?.[k]
+  }
+
+  let text = typeof value === 'string' ? value : key
 
   // Replace parameters like {count}, {gap}, etc.
   if (params) {
